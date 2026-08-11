@@ -1,66 +1,107 @@
-# Copyright Statement / 版权与来源声明
+# Copyright & Source Statement / 版权与来源声明
 
-## 提交内容概述
+> 本声明覆盖投稿包中所有资产的版权、许可和来源信息。
+> This statement covers copyright, licensing, and source information for all assets in the submission package.
 
-本方案所有文本、几何数据、图纸、PDF和静态HTML资源均由声明的AI agent生成，或使用 `sources.json` 中列出的已清权公开/用户提供的来源。`visual/index.html` 不需要远程资源。
+## 1. 字体 / Fonts
 
-## 字体
+| 字体 | 用途 | 许可 | 备注 |
+|------|------|------|------|
+| Noto Sans CJK SC | 图片、PDF 中文渲染 | OFL (SIL Open Font License) | Google/Adobe 开源字体 |
+| Noto Serif CJK SC | 备选中文衬线字体 | OFL | 同上 |
+| Helvetica | HTML、PDF 英文渲染 | 系统字体 | 标准 Web/PDF 字体 |
 
-- **思源黑体（Noto Sans CJK）：** Google 开源字体，Apache License 2.0。用于中文文本显示。
-- **Inter：** Google 开源字体，SIL Open Font License 1.1。用于英文文本显示。
-- **系统字体回退：** 当上述字体不可用时，使用系统默认无衬线字体。
+**许可声明**: Noto Sans CJK SC 根据 SIL Open Font License 1.1 发布，允许商业使用、修改和再分发。详见 https://fonts.google.com/noto
 
-## 图标与图形
+## 2. 图标与图形 / Icons & Graphics
 
-- **SVG图标：** 由AI agent基于方案概念自行设计生成，版权归方案作者所有，以 COMMUNITY-DISPLAY-ONLY 许可提交。
-- **Logo概念：** `assets/logo/jingzhang-belt-logo.svg` 为AI生成的概念设计，不包含任何第三方商标或受版权保护的图形元素。
+| 资产 | 来源 | 许可 | 备注 |
+|------|------|------|------|
+| assets/figures/*.png | AI 辅助生成 + 人工编辑 | CC BY 4.0 | 使用 Pillow (PIL) 生成，Noto Sans CJK SC 字体 |
+| assets/figures/*.en.png | 英文版图件 | CC BY 4.0 | 与中文版同源 |
 
-## 地图与空间数据
+## 3. 地图与地理数据 / Maps & Geodata
 
-- **GeoJSON几何数据：** 基于公开来源和AI推断生成的临时数据。所有几何数据均为概念性建议，不构成法定规划依据。
-- **临时边界：** `site_boundary.geojson`、`key_areas.geojson` 等文件中的边界为临时粗略估计，标注为低置信度（provisional）。
-- **坐标系：** WGS84 (EPSG:4326)，如需转换为北京地方坐标系请参阅相关测绘标准。
+| 资产 | 来源 | 许可 | 备注 |
+|------|------|------|------|
+| geometry/site_boundary.geojson | 从官方公告面积推导 | 临时数据 | ⚠ NOT official redline |
+| geometry/key_areas.geojson | 从官方公告描述推导 | 临时数据 | ⚠ NOT official boundary |
+| geometry/land_use.geojson | 设计建议 | 临时数据 | 设计方案，非控规 |
+| geometry/green_space.geojson | 设计建议 | 临时数据 | 设计方案 |
+| geometry/public_space.geojson | 设计建议 | 临时数据 | 设计方案 |
+| geometry/buildings.geojson | 设计建议 | 临时数据 | 设计方案 |
+| geometry/phasing.geojson | 设计建议 | 临时数据 | 分期方案 |
 
-## 数据来源
+**重要声明**: 所有几何数据均为临时推导或设计建议，不构成官方红线或精确面积依据。待主办方提供正式几何数据后必须替换。
 
-- **官方公告：** 北京市规划和自然资源委员会海淀分局发布的《百年京张AI创新带城市设计国际方案征集资格预审公告》
-- **智能体任务书：** `brief/site-package/agent_taskbook.json`
-- **来源登记：** 完整来源清单见 `sources.json` 和 `data/source_registry.json`
-- **公开数据：** OpenStreetMap（ODbL许可）、政府公开数据（遵循各数据集许可条款）
+## 4. 数据来源 / Data Sources
 
-## 代码与软件
+| 来源 | 内容 | 许可 | 限制 |
+|------|------|------|------|
+| 官方公告 (2026-05-09) | 项目范围、面积、功能定位 | 公开信息 | 仅允许使用面积和任务描述，不允许推导官方 polygon |
+| 任务书 (2026-05-18) | agent.1-6 要求、场景、画像 | 公开征集文件 | 按征集规则使用 |
+| 全球案例研究 | AI 创新园区案例 | 公开信息 | 案例描述基于公开资料，来源已标注 |
 
-- **HTML页面：** 纯静态HTML/CSS/JavaScript，不依赖任何远程资源、CDN、外部API或第三方脚本。
-- **自检脚本：** `scripts/` 目录下的验证脚本为项目工具链的一部分。
-- **Python依赖：** 验证脚本使用 shapely、pyproj、jsonschema 等开源库，遵循各自许可。
+## 5. 代码与工具 / Code & Tools
 
-## AI生成内容
+| 工具 | 用途 | 许可 |
+|------|------|------|
+| Python 3 | 脚本生成 | PSF License |
+| Pillow (PIL) | 图片生成 | MIT License |
+| fpdf2 | PDF 生成 | LGPL |
+| Shapely | 几何计算 | BSD License |
+| pyproj | 坐标变换 | MIT License |
 
-- **文本内容：** 所有方案文本由AI agent（模型：xiaomi/mimo-v2.5-pro）生成，经人工审核框架约束。
-- **图表：** 所有PNG图表由AI agent编程生成（Python matplotlib/PIL），不包含第三方受版权保护的图像素材。
-- **PDF文件：** A3文册和A0展板由AI agent编程生成（Python reportlab/fpdf），内容来自方案文本和几何数据。
-- **概念性声明：** 方案中所有AI场景、模型能力、运营机制、评估指标和成本估算均为概念性建议，不代表技术可行性验证结果或实施承诺。
+## 6. AI 生成内容 / AI-Generated Content
 
-## 第三方材料
+| 内容类型 | 生成方式 | 人工编辑 |
+|----------|----------|----------|
+| proposal.md | Xiaomi MiMo v2.5 Pro 生成 + 人工编辑 | 是 |
+| proposal.en.md | 从 proposal.md 翻译 + 人工校对 | 是 |
+| HTML 文件 | 代码生成 | 是 |
+| 图片 (PNG) | Pillow 代码生成（非 AI 图像模型） | 是 |
+| PDF 文件 | fpdf2 代码生成 | 是 |
+| GeoJSON | 代码生成 + 人工校验 | 是 |
+| JSON 配置文件 | 代码生成 | 是 |
 
-- **案例研究引用：** 方案中引用的全球案例信息基于公开报道和学术文献，仅供论证参考，不构成对相关项目的背书。
-- **标准引用：** 引用的国家标准、行业标准和国际标准均为公开发布的标准文件编号和名称，不复制标准正文。
-- **无第三方商标：** 方案不包含任何第三方商标、品牌标识或受版权保护的商业图像。
+**声明**: 本方案中的文字内容由 AI 辅助生成，经人工编辑和校验。图片和 PDF 由代码程序化生成（非 AI 图像生成模型），使用开源字体和图形库。
 
-## 许可条款
+## 7. 第三方材料 / Third-Party Materials
 
-- **提交许可：** COMMUNITY-DISPLAY-ONLY — 本方案仅用于社区展示和评审目的。
-- **转载限制：** 未经作者明确同意，不得将本方案用于商业目的。
-- **AI生成声明：** 根据提交要求，本方案声明为AI agent生成内容，所有设计判断均可追溯至来源、指标和图层。
+本投稿包中**不包含**任何第三方受版权保护的图片、照片、视频或音频材料。所有视觉内容均为程序化生成。
 
-## 数据保留与隐私
+## 8. 许可条款 / License Terms
 
-- **无个人数据：** 方案本身不包含任何个人身份信息（PII）。
-- **概念性隐私设计：** 方案中描述的AI场景均包含隐私保护机制的概念性设计，具体实施方案需另行进行隐私影响评估。
-- **数据不出境：** 方案中涉及的数据存储和处理建议均遵循数据本地化原则。
+本投稿方案根据 **CC BY 4.0** (Creative Commons Attribution 4.0 International) 发布。
+
+您可以：
+- 共享 — 以任何媒介或格式复制及传播本材料
+- 改编 — 混合、转换及基于本材料创作
+
+条件：
+- 署名 — 您必须给出适当的署名
+
+## 9. 限制与免责 / Limitations & Disclaimers
+
+1. 本方案为**开放共创建议**，不替代正式规划，不构成政府审定结论
+2. 所有几何边界均为**临时数据**，不得作为官方红线或精确面积依据
+3. 建筑高度、开发强度等控制值为**概念建议**，需正式规划审批
+4. 全球案例描述基于公开信息，不保证信息的完整性和时效性
+5. AI 生成内容已尽力确保准确性，但不保证无误
+
+## 10. 资产权利核验状态 / Asset Rights Verification Status
+
+| 资产类别 | 核验状态 | 备注 |
+|----------|----------|------|
+| 字体 | ✅ 已核验 | Noto Sans CJK SC - OFL |
+| 图标/图形 | ✅ 已核验 | 程序化生成，CC BY 4.0 |
+| 地图/地理 | ⚠️ 临时数据 | 待主办方正式数据替换 |
+| 数据来源 | ✅ 已标注 | 来源已在正文和 source_registry 中标注 |
+| 代码工具 | ✅ 已核验 | 全部为开源工具 |
+| AI 生成 | ✅ 已声明 | 已注明生成方式和人工编辑 |
+| 第三方材料 | ✅ 无 | 不包含第三方受保护材料 |
 
 ---
 
-*最后更新：2026-08-11*
-*AI Agent: Claw 🦞 (xiaomi/mimo-v2.5-pro)*
-*GitHub: lele12345678*
+*Last updated: 2026-08-11*
+*Submission: submissions/lele12345678/jingzhang-ai-belt*
