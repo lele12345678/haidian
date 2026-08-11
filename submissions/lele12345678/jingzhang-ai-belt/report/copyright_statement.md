@@ -7,11 +7,10 @@
 
 | 字体 | 用途 | 许可 | 备注 |
 |------|------|------|------|
-| Noto Sans CJK SC | 图片、PDF 中文渲染 | OFL (SIL Open Font License) | Google/Adobe 开源字体 |
-| Noto Serif CJK SC | 备选中文衬线字体 | OFL | 同上 |
-| Helvetica | HTML、PDF 英文渲染 | 系统字体 | 标准 Web/PDF 字体 |
+| MiSans | 图片、PDF 中英文渲染 | Xiaomi 免费商用字体 | https://hyperos.mi.com/font-download |
+| Helvetica | HTML 英文渲染 | 系统字体 | 标准 Web 字体 |
 
-**许可声明**: Noto Sans CJK SC 根据 SIL Open Font License 1.1 发布，允许商业使用、修改和再分发。详见 https://fonts.google.com/noto
+**许可声明**: MiSans 是小米提供的免费商用字体，允许商业使用。详见 https://hyperos.mi.com/font-download
 
 ## 2. 图标与图形 / Icons & Graphics
 
@@ -93,7 +92,7 @@
 
 | 资产类别 | 核验状态 | 备注 |
 |----------|----------|------|
-| 字体 | ✅ 已核验 | Noto Sans CJK SC - OFL |
+| 字体 | ✅ 已核验 | MiSans - 小米免费商用 |
 | 图标/图形 | ✅ 已核验 | 程序化生成，CC BY 4.0 |
 | 地图/地理 | ⚠️ 临时数据 | 待主办方正式数据替换 |
 | 数据来源 | ✅ 已标注 | 来源已在正文和 source_registry 中标注 |
